@@ -1,3 +1,31 @@
-<p1>hello yay</p1>
+
+<form>
+    <label for="cars">Choose a car:</label>
+    <select name="cars" id="cars">
+        {% for field in fields %}
+        <div>
+            <option value="volvo">{{ field }}</option>
+        </div>
+        {% endfor %}
+    </select>
+
+    <select name="cars" id="cars">
+        {% for motivation in motivations %}
+        <div>
+            <option value="volvo">{{ motivation }}</option>
+        </div>
+        {% endfor %}
+    </select>
+    <input type="submit" name="list" value="Do Something Else" />
+</form>
 
 
+
+{% for mentor in mentors %}
+    <div>
+        <p1>{{ mentor.name }}</p1>
+        <p1>{{ mentor.city }}</p1>
+        <p1>{{ mentor.fields }}</p1>
+        <p1>{{ mentor.moviations }}</p1>
+    </div>
+{% endfor %}

@@ -1,0 +1,16 @@
+{% for message in messages %}
+<p>
+<div class="alert alert-{{message.tags}}">{{message}}</div>
+</p>
+{% endfor %}
+
+<h2>{{mentor.name}}</h2>
+<p>{{mentor.description}}</p>
+<p>{{mentor.web_link}}</p>
+<img src="{{mentor.image}}" alt="" style="height: 150px; width:100px">
+
+{% for session in sessions %}
+<h2>{{session.title}}</h2>
+<p>From {{session.startTime}} to {{session.endTime}}</p>
+<a href="/booksession/{{mentor.id}}/{{user.id}}/{{session.id}}">Book Session</a>
+{% endfor %}

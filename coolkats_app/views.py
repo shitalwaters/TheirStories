@@ -3,10 +3,30 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import CreateUserForm
+from django.contrib.auth.models import User
+
 # Create your views here.
+from coolkats_app.models import Mentor, AvailableTime
+from django.db.models import Q
 
 def index(request):
-    return render(request, 'coolkats_app/index.html')
+    
+    field = request.GET.get('field')
+    if field==None:
+        field="/"
+    motivation = request.GET.get('motivation')
+    if motivation==None:
+        motivation="/"
+    mentors = Mentor.objects.filter(Q(fields__icontains=field) & Q(motivations__icontains=motivation))
+
+    fields = ["choice1", "choice2", "choice3"]
+    motivations = ["c1", "c2", "c3"]
+    context = {
+        'mentors': mentors,
+        'fields':fields,
+        'motivations': motivations
+    }
+    return render(request, 'coolkats_app/index.html', context)
 
 
 def signin(request):
@@ -40,3 +60,19 @@ def logout(request):
     logout(request)
     return redirect('/signin/')
 
+def mentor(request, mentor_id):
+    user=User.objects.get(id=request.user.id)
+    mentor=Mentor.objects.get(id=mentor_id)
+    sessions=AvailableTime.objects.filter(Q(mentor=mentor_id)&Q(user__isnull=True)).order_by('-startTime').reverse()
+    context={"sessions":sessions, "mentor":mentor, "user": user}
+    return render(request, 'coolkats_app/mentor.html', context)
+
+def bookSession(request, user_id, mentor_id, session_id):
+    user=User.objects.get(id=user_id)
+    mentor=Mentor.objects.get(id=mentor_id)
+    sessions=AvailableTime.objects.get(id=session_id)
+    sessions.user=user
+    sessions.save()
+    message='You book a session with '+mentor.name+" on "+str(sessions.startTime.strftime("%m/%d/%Y, %H:%M:%S"))+"."
+    messages.info(request, message)
+    return redirect('/mentor/'+str(mentor_id))
