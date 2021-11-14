@@ -290,9 +290,24 @@
       padding: 10px 10px 10px 10px;
     }
 
-    form .submitbutton input {
-      color: white;
+    .submitbutton {
+      text-align: center; 
       font-size: 24px;
+    }
+    
+    .button {
+    background-color: #2CB6FC;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    margin: 9px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white; 
     }
 
     .result {
@@ -322,6 +337,17 @@
     }
 
     .card-img-overlay{bottom: 0;}
+
+    .mentor-info-container {
+        position: relative;
+        min-height: 150px;
+    }
+
+    .mentor-info {
+        position: absolute;
+        bottom: 200px;
+        left: 0;
+    }
 
     .moreButton .btn{
       background-color: #2db6fc;
@@ -372,7 +398,7 @@
                       </datalist>
                     </div>
                     <div class="col submitbutton">
-                      <input type="submit" class="btn" style="background-color: #2CB6FC;" value="Submit" />
+                        <button class="button">Search</button>
                     </div>
                   </div>
                 </form>
@@ -383,12 +409,12 @@
                     <div class="card bg-dark text-white">
                       <img class="card-img" src="{{mentor.image}}" alt="Card image"
                         style="filter: brightness(50%); height: 500px; width: 350px;">
-                      <div class="card-img-overlay">
-                        <h3 class="card-title">{{mentor.name}}</h3>
-                        <p class="card-text">{{mentor.description}}</p>
-                        <p class="card-text">{{mentor.fields}}</p>
-                        <p class="card-text">{{mentor.motivations}}</p>
-
+                      <div class="mentor-info-container card-img-overlay">
+                        <div class="mentor-info">
+                            <h3 class="card-title" style="padding-left: 20px; font-size: 18x;">{{mentor.name}}</h3>
+                            <p class="card-text" style="padding-left: 20px; font-size: 18px;">{{mentor.fields}}</p>
+                            <p class="card-text" style="padding-left: 20px; font-size: 16px;">{{mentor.motivations}}</p>
+                        </div>
                       </div>
                   </a>
                 </div>

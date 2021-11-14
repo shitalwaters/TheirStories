@@ -24,50 +24,51 @@
 
 <body>
     <div class="container">
-        <div class="mentor-title">
-            {% for message in messages %}
-            <p>
-            <div class="alert alert-{{message.tags}}">{{message}}</div>
-            </p>
-            {% endfor %}
-        </div>
-
-        <div class="mentor-name">Mentor Bio</div>
-        <div class="mentor-desc">{{mentor.name}} - {{mentor.fields}}</div>
-        <!-- <p>{{mentor.web_link}}</p> -->
-        <div class="flex-container">
-
+        <div class="container-bio">
+            <div class="mentor-name">Mentor Bio</div>
+            <div class="mentor-desc">{{mentor.name}} - {{mentor.fields}}</div>
+            <!-- <p>{{mentor.web_link}}</p> -->
             <div>
-                <img src="{{mentor.image}}" alt="" style="height: 400px; width:500px">
-            </div>
-            <div class="mentor-tab">
-                <!-- Tab -->
-                <script>
-                    document.getElementById("defaultOpen").click();
-                </script>
-            
-                <div class="tab">
-                    <button class="tablinks" onclick="openCity(event, 'About-me')" id="defaultOpen">About me</button>
-                    <button class="tablinks" onclick="openCity(event, 'Specialty')">Specialty</button>
-                    <button class="tablinks" onclick="openCity(event, 'Reviews')">Reviews</button>
+                <div class="flex-container">
+                    <div>
+                        <img class="cropped1" src="{{mentor.image}}" alt="" style="height: 400px; width:500px">
+                    </div>
+                    <div class="mentor-tab-container">
+                        <div class="mentor-tab">
+                            <!-- Tab -->
+                            <script>
+                                document.getElementById("defaultOpen").click();
+                            </script>
+                        
+                            <div class="tab">
+                                <button class="tablinks" onclick="openCity(event, 'About-me')" id="defaultOpen">About me</button>
+                                <button class="tablinks" onclick="openCity(event, 'Specialty')">Specialty</button>
+                                <button class="tablinks" onclick="openCity(event, 'Reviews')">Reviews</button>
+                            </div>
+                            
+                            <!-- Tab content -->
+                            <div id="About-me" class="tabcontent">
+                                <p>{{mentor.description}}</p>
+                            </div>
+                            
+                            <div id="Specialty" class="tabcontent">
+                                <p>{{mentor.fields}}</p>
+                            </div>
+                            
+                            <div id="Reviews" class="tabcontent">
+                                <p>what is this???</p>
+                            </div>
+                        </div>
+                        <div class="linkein">
+                            <p>Connect with me: <a style="text-decoration:none;
+                                font-weight: bold;" href="https://www.linkedin.com/">Linkedin</a></p>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Tab content -->
-                <div id="About-me" class="tabcontent">
-                    <p>{{mentor.description}}</p>
-                </div>
-                
-                <div id="Specialty" class="tabcontent">
-                    <p>{{mentor.fields}}</p>
-                </div>
-                
-                <div id="Reviews" class="tabcontent">
-                    <p>what is this???</p>
-                </div>
             </div>
         </div>
-
-        <div class="container">
+        <div class="container-book">
             <div class="booksession hstack">
                 <div class="booksession-header">
                     <h2>Book a free meeting</h2>
