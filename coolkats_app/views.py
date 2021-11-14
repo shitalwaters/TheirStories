@@ -83,3 +83,24 @@ def bookSession(request, user_id, mentor_id, session_id):
     message='You book a session with '+mentor.name+" on "+str(sessions.startTime.strftime("%m/%d/%Y, %H:%M:%S"))+"."
     messages.info(request, message)
     return redirect('/mentor/'+str(mentor_id))
+
+def categoryPage(request):
+    return render(request, 'coolkats_app/categories.html')
+
+def mentorResult(request, result_id):
+    if result_id==1:
+        mentors= Mentor.objects.filter(Q(motivations__icontains='Essay Writing Help'))
+    elif result_id==2:
+        mentors= Mentor.objects.filter(Q(motivations__icontains='College Roadmap'))
+    elif result_id==3:
+        mentors= Mentor.objects.filter(Q(motivations__icontains='Interview Prep'))
+    elif result_id==4:
+        mentors= Mentor.objects.filter(Q(motivations__icontains='Presentation Skills'))
+    elif result_id==5:
+        mentors= Mentor.objects.filter(Q(motivations__icontains='Managing Stress'))
+    elif result_id==6:
+        mentors= Mentor.objects.filter(Q(motivations__icontains='Essay_Writing_Help'))
+    else: 
+        mentors=[]
+    context={'mentors':mentors,}
+    return render(request, 'coolkats_app/category.html', context)
