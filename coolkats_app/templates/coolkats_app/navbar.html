@@ -1,27 +1,27 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">???</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ml-auto">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-item nav-link active" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link active" href="/mentor/">Home</a>
-                </li>
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-item nav-link" href="/logout/">Log out</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-item nav-link" href="/signin/">Login</a>
-                </li>
-                {% endif %}
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top border-bottom border-dark" style="background:white;">
+    <a class="navbar-brand" href="/"><span id="webname">HerStories</span></a>
+    
+    <div class="navbar-nav ms-auto links">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-item nav-link active" href="/">Find a Mentor</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link active" href="/resources/">Resources</a>
+            </li>
+            
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-item nav-link" href="/logout/">Log out</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-item nav-link" href="/signin/">Sign in</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link" href="/signup/">Sign up</a>
+            </li>
+            {% endif %}
     </div>
+
 </nav>

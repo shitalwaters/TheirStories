@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, fields
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
@@ -12,3 +12,7 @@ class CreateUserForm(UserCreationForm):
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
 
+class SearchForm(forms.Form):
+    field=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    motivation=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    

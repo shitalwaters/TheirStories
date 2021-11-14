@@ -1,0 +1,29 @@
+.navbar{
+    height:100px;
+}
+.navbar  a {
+    font-size: 24px;
+}
+
+.navbar #webname{
+    font-size: 32px;
+    color: #2CB6FC;
+    margin-left: 30%;
+
+}
+
+.navbar navbar-brand{
+    margin-left: 30%;
+}
+
+.navbar{
+    margin-bottom: 8rem;
+}
+
+.nav{
+    background:white;
+}
+
+.navbar-nav{
+    margin-right: 35px;
+}

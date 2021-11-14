@@ -1,3 +1,10 @@
+.container{
+  margin-top: 80rem;
+  background-color: aquamarine;
+}
+
+
+
 .coolkats-homepage {
     align-items: flex-start;
     background-color: var(--white);

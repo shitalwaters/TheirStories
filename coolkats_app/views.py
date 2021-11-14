@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import CreateUserForm
+from .forms import CreateUserForm, SearchForm
 from django.contrib.auth.models import User
 
 from coolkats_app.models import Mentor
@@ -11,16 +11,17 @@ from django.db.models import Q
 from coolkats_app.models import Mentor, AvailableTime
 from django.db.models import Q
 
-
 def index(request):
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            field=form.cleaned_data['field']
+            motivation=form.cleaned_data['motivation']
+            mentors = Mentor.objects.filter(Q(fields__icontains=field) & Q(motivations__icontains=motivation))
+    else:
+        form=SearchForm()
+        mentors=[]
     
-    field = request.GET.get('field')
-    if field==None:
-        field="/"
-    motivation = request.GET.get('motivation')
-    if motivation==None:
-        motivation="/"
-    mentors = Mentor.objects.filter(Q(fields__icontains=field) & Q(motivations__icontains=motivation))
 
     fields = ["Software Engineer", "Design", "Marketing", "Product Management"]
     motivations = ["Job search", "Career advice", "Leadership", "Mentorship", "Skills"]
@@ -62,7 +63,7 @@ def signup(request):
     context = {'form': form}
     return render(request, 'coolkats_app/signup.html', context)
 
-def logout(request):
+def logoutUser(request):
     logout(request)
     return redirect('/signin/')
 

@@ -1,87 +1,390 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-<form>
-    <label for="cars">Choose a car:</label>
-    <select name="cars" id="cars">
-        {% for field in fields %}
-        <div>
-            <option value="volvo">{{ field }}</option>
-        </div>
-        {% endfor %}
-    </select>
-    <select name="cars" id="cars">
-        {% for motivation in motivations %}
-        <div>
-            <option value="volvo">{{ motivation }}</option>
-        </div>
-        {% endfor %}
-    </select>
-    <input type="submit" name="list" value="Do Something Else" />
-</form>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
+    integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'coolkats_app/index.css/' %}">
+  <link rel="stylesheet" href="{% static 'coolkats_app/navbar.css/' %}">
 
-
-
-{% for mentor in mentors %}
-    <div>
-        <p1>{{ mentor.name }}</p1>
-        <p1>{{ mentor.city }}</p1>
-        <p1>{{ mentor.fields }}</p1>
-        <p1>{{ mentor.moviations }}</p1>
-
-    </div>
-    <div>
-        <a href="/mentor/{{ mentor.name }}">detail</a>
-    </div>
-{% endfor %}
+  <style>
+    .container {
+      margin-top: 9rem;
+      background-color: white;
+    }
 
 
-<div class="container-center-horizontal">
-    <div class="coolkats-homepagescreen">
-      <div class="overlap-group2">
-        <div class="overlap-group1">
-          <img
-            class="ellipse-25"
-            src="ellipse-25.svg"
-          />
-          <img
-            class="ellipse-26"
-            src="ellipse-26.svg"
-          />
-          <div class="text-2">Book an appointment today to meet our world-class mentors.</div>
-          <img
-            class="component-37"
-            src="component-37.png"
-          />
-          <img
-            class="line-13"
-            src="line-13.svg"
-          />
-          <div class="component-38">
-            <div class="overlap-group">
-              <div class="button-groupborder-1px-black">
-                <img
-                  class="separator"
-                  src="separator.svg"
-                />
+
+    .coolkats-homepage {
+      align-items: flex-start;
+      background-color: var(--white);
+      display: flex;
+      height: 1024px;
+      overflow: hidden;
+      width: 1440px;
+    }
+
+    .coolkats-homepage .overlap-group2 {
+      height: 1390px;
+      margin-top: -101px;
+      position: relative;
+      width: 1999px;
+    }
+
+    .coolkats-homepage .overlap-group1 {
+      height: 1390px;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 1999px;
+    }
+
+    .coolkats-homepage .ellipse-25 {
+      height: 1010px;
+      left: 806px;
+      position: absolute;
+      top: 380px;
+      width: 1070px;
+    }
+
+    .coolkats-homepage .ellipse-26 {
+      height: 942px;
+      left: 999px;
+      position: absolute;
+      top: 0;
+      width: 1000px;
+    }
+
+    .coolkats-homepage .text-2 {
+      color: var(--black);
+      font-family: var(--font-family-raleway);
+      font-size: var(--font-size-xl);
+      font-weight: 500;
+      left: 93px;
+      letter-spacing: 0;
+      line-height: 42.0px;
+      position: absolute;
+      top: 402px;
+      width: 765px;
+    }
+
+    .coolkats-homepage .component-37 {
+      height: 56px;
+      left: 93px;
+      position: absolute;
+      top: 137px;
+      width: 1254px;
+    }
+
+    .coolkats-homepage .line-13 {
+      height: 1px;
+      left: 93px;
+      position: absolute;
+      top: 206px;
+      width: 1255px;
+    }
+
+    .coolkats-homepage .component-38 {
+      align-items: flex-start;
+      display: flex;
+      height: 86px;
+      left: 93px;
+      min-width: 971px;
+      position: absolute;
+      top: 527px;
+    }
+
+    .coolkats-homepage .overlap-group {
+      height: 86px;
+      position: relative;
+      width: 972px;
+    }
+
+    .coolkats-homepage .button-group {
+      align-items: flex-start;
+      background-color: var(--white);
+      display: flex;
+      height: 86px;
+      left: 0;
+      padding: 0 401.0px;
+      position: absolute;
+      top: 0;
+      width: 806px;
+    }
+
+    .coolkats-homepage .separator {
+      height: 86px;
+      margin-left: 2px;
+      width: 2px;
+    }
+
+    .coolkats-homepage .text-3 {
+      height: 22px;
+      left: 427px;
+      letter-spacing: 0;
+      line-height: 22.4px;
+      position: absolute;
+      top: 43px;
+      white-space: nowrap;
+      width: 285px;
+    }
+
+    .coolkats-homepage .text-4 {
+      height: 22px;
+      left: 22px;
+      letter-spacing: 0;
+      line-height: 22.4px;
+      position: absolute;
+      top: 43px;
+      white-space: nowrap;
+      width: 320px;
+    }
+
+    .coolkats-homepage .motivation {
+      height: 22px;
+      left: 22px;
+      letter-spacing: 0;
+      line-height: 22.4px;
+      position: absolute;
+      top: 21px;
+      white-space: nowrap;
+      width: 240px;
+    }
+
+    .coolkats-homepage .skillset {
+      height: 22px;
+      left: 427px;
+      letter-spacing: 0;
+      line-height: 22.4px;
+      position: absolute;
+      top: 21px;
+      white-space: nowrap;
+      width: 240px;
+    }
+
+    .coolkats-homepage .rectangle-33 {
+      background-color: var(--white);
+      height: 86px;
+      left: 800px;
+      position: absolute;
+      top: 0;
+      width: 172px;
+    }
+
+    .coolkats-homepage .rectangle-25 {
+      background-color:
+        #2db6fc;
+      border-radius: 5px;
+      height: 60px;
+      left: 822px;
+      position: absolute;
+      top: 13px;
+      width: 128px;
+    }
+
+    .coolkats-homepage .search {
+      color: var(--white);
+      font-family: var(--font-family-raleway);
+      font-size: var(--font-size-l);
+      font-weight: 600;
+      left: 847px;
+      letter-spacing: 0;
+      line-height: 28.8px;
+      position: absolute;
+      top: 28px;
+      white-space: nowrap;
+    }
+
+    .coolkats-homepage .womenintech-1 {
+      height: 691px;
+      left: 0;
+      object-fit: cover;
+      position: absolute;
+      top: 434px;
+      width: 1440px;
+    }
+
+    .coolkats-homepage .text-1 {
+      color: var(--black);
+      font-family: var(--font-family-inter);
+      font-size: var(--font-size-xxl);
+      font-weight: 700;
+      left: 93px;
+      letter-spacing: 0;
+      line-height: 54px;
+      position: absolute;
+      top: 276px;
+      width: 665px;
+    }
+
+    @import url("https://fonts.googleapis.com/css?family=Inter:700,600|Raleway:500,600");
+
+    .screen a {
+      display: contents;
+      text-decoration: none;
+    }
+
+    .container-center-horizontal {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      pointer-events: none;
+      width: 100%;
+    }
+
+    .container-center-horizontal>* {
+      flex-shrink: 0;
+      pointer-events: auto;
+    }
+
+    .valign-text-middle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .title {
+      width: 60%;
+    }
+
+    .text-1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .text-2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .search-form {
+      margin-top: 30px;
+      font-size: 24px;
+      margin-bottom: 3rem;
+    }
+
+    form .row {
+      border: 1px solid grey;
+      width: 85%;
+    }
+
+    form .col {
+      border: 1px solid grey;
+      padding: 10px 10px 10px 10px;
+    }
+
+    form .submitbutton input {
+      color: white;
+      font-size: 24px;
+    }
+
+    .result {
+      
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 5px 5px;
+      margin: 0 auto;
+    }
+
+    .card {
+      height: 500px;
+      width: 350px;
+    }
+
+    .result a{
+      color: white;
+    }
+
+    .card-img-overlay{bottom: 0;}
+  </style>
+</head>
+
+<body>
+  {% include 'coolkats_app/navbar.html' %}
+
+  <div class="container">
+    <div class="container-center-horizontal">
+      <div class="coolkats-homepagescreen">
+        <div class="overlap-group2">
+          <div class="overlap-group1">
+            <div class="title">
+              <h1 class="text-1">Empowering female students with the support of passionate mentors.</h1>
+              <div class="text-2">Book an appointment today to meet our world-class mentors.</div>
+            </div>
+            <div class="component-38">
+              <div class="search-form">
+
+                <form action="/" method="post">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col">
+                      <label for="motivation" class="form-label">Motivation</label>
+                      <input class="form-control" list="motivationOptions" id="motivation" name="motivation"
+                        placeholder="What type of help do you want?">
+                      <datalist id="motivationOptions">
+                        {% for motivation in motivations %}
+                        <option value={{ motivation }}>
+                          {% endfor %}
+                      </datalist>
+                    </div>
+                    <div class="col">
+                      <label for="field" class="form-label">Skillset</label>
+                      <input class="form-control" list="fieldOptions" id="field" name="field"
+                        placeholder="What field are you looking for?">
+                      <datalist id="fieldOptions">
+                        {% for field in fields %}
+                        <option value={{ field }}>
+                          {% endfor %}
+                      </datalist>
+                    </div>
+                    <div class="col submitbutton">
+                      <input type="submit" class="btn" style="background-color: #2CB6FC;" value="Submit" />
+                    </div>
+                  </div>
+                </form>
+
+                <div class="result">
+                  {% for mentor in mentors %}
+                  <a href="/mentor/{{ mentor.id}}">
+                    <div class="card bg-dark text-white">
+                      <img class="card-img" src="{{mentor.image}}" alt="Card image"
+                        style="filter: brightness(50%); height: 500px; width: 350px;">
+                      <div class="card-img-overlay">
+                        <h3 class="card-title">{{mentor.name}}</h3>
+                        <p class="card-text">{{mentor.description}}</p>
+                        <p class="card-text">{{mentor.fields}}</p>
+                        <p class="card-text">{{mentor.motivations}}</p>
+
+                      </div>
+                  </a>
+                </div>
+
+                {% endfor %}
               </div>
-              <p class="text-3valign-text-middleinter-semi-bold-black-16px">
-                What field are you looking for?
-              </p>
-              <p class="text-4valign-text-middleinter-semi-bold-black-16px">
-                What type of help do you want?
-              </p>
-              <div class="motivationvalign-text-middleinter-semi-bold-black-16px-2">Motivation:</div>
-              <div class="skillsetvalign-text-middleinter-semi-bold-black-16px-2">Skillset:</div>
-              <div class="rectangle-33border-1px-black"></div>
-              <div class="rectangle-25"></div>
-              <div class="search">Search</div>
             </div>
           </div>
-          <img
-            class="womenintech-1"
-            src="womenintech-1.png"
-          />
         </div>
-        <h1 class="text-1">Empowering female students with the support of passionate mentors.</h1>
+        <img class="womenintech-1" src="{% static 'coolkats_app/images/womenintech-1.png' %}" />
       </div>
     </div>
   </div>
+  </div>
+  </div>
+</body>
+
+</html>
