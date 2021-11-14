@@ -258,22 +258,26 @@
 
     .title {
       width: 60%;
+      margin-right: 3rem;
     }
 
     .text-1 {
       font-size: 36px;
       margin-bottom: 15px;
+      margin-right: 3rem;
     }
 
     .text-2 {
       font-size: 30px;
       margin-bottom: 20px;
+      margin-right: 3rem;
     }
 
     .search-form {
       margin-top: 30px;
       font-size: 24px;
       margin-bottom: 3rem;
+      margin-right: 3rem;
     }
 
     form .row {
@@ -312,7 +316,19 @@
       margin-right: 1rem;
     }
 
+    .moreButton{
+      font-size: 28px;
+      text-align: center;
+    }
+
     .card-img-overlay{bottom: 0;}
+
+    .moreButton .btn{
+      margin-top: 25px;
+      font-size: 28px;
+      width: 150px;
+      height: 60px;
+    }
   </style>
 </head>
 
@@ -359,7 +375,7 @@
                     </div>
                   </div>
                 </form>
-
+                {% if mentors.count > 0 %}
                 <div class="result">
                   {% for mentor in mentors %}
                   <a href="/mentor/{{ mentor.id}}">
@@ -378,6 +394,11 @@
 
                 {% endfor %}
               </div>
+
+              <div class="moreButton">
+                <a class="btn btn-primary">More</a>
+              </div>
+              {% endif %}
             </div>
           </div>
         </div>

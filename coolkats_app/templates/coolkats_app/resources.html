@@ -2,8 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,126 +18,142 @@
         integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'coolkats_app/resources.css/' %}">
+    <link rel="stylesheet" href="{% static 'coolkats_app/navbar.css/' %}">
+
+    <style>
+        .card-img-top {
+            height: 150px;
+            width: 250px;
+        }
+
+        .row {
+            margin-bottom: 2rem;
+        }
+    </style>
 </head>
 
 
 <body>
     {% include 'coolkats_app/navbar.html' %}
-    
-<p>Resources</p>
+    <div class="container">
+        <div class="header">
+            <h2>Resources</h2>
+        </div>
+        <div class="row">
+            <h1>Online Courses</h1>
+            <p>Organizations that offer tools and certifications for women.</p>
+            <div class="bg">
+                <div class="column">
+                    <a href="www.google.com">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'coolkats_app/images/girlsintech.JPG' %}" class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Girls in Tech</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="column">
+                    <a href="www.google.com">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'coolkats_app/images/wit.JPG' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Women in Stem</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="column">
 
-
-<div class="row">
-    <h1>Online Courses</h1>
-    <p>Organizations that offer tools and certifications for women.</p>
-    <div class="column">
-        <a href="www.google.com">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'coolkats_app/images/girlsintech.JPG' %}"
-            class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Girls in Tech</p>
-            </div>
-        </div>
-        </a>
-    </div>
-    <div class="column">
-        <a href="www.google.com">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'coolkats_app/images/wit.JPG' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Women in Stem</p>
-            </div>
-        </div>
-        </a>
-    </div>
-    <div class="column">
-        
-        <a href="www.google.com">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'coolkats_app/images/girlswhocode.png' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Girls who code</p>
-            </div>
-        </div>
-        </a>
-    </div>
-</div>
-
-
-<div class="row">
-    <h1>Events</h1>
-    <p>Organizations hosting events this month for women.</p>
-    <div class="column">
-        <a href="www.google.com">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'coolkats_app/images/hackathon.JPG' %}"
-            class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Hackathon</p>
-            </div>
-        </div>
-        </a>
-    </div>
-    <div class="column">
-        
-        <a href="www.google.com">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'coolkats_app/images/network.JPG' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Networking Event</p>
-            </div>
-        </div>
-        </a>
-    </div>
-    <div class="column">
-        <a href="www.google.com">
-            <div class="card" style="width: 18rem;">
-                <img src="{% static 'coolkats_app/images/Capture222.JPG' %}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">STEM Conference</p>
+                    <a href="www.google.com">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'coolkats_app/images/girlswhocode.png' %}" class="card-img-top"
+                                alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Girls who code</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
-        </a>
-    </div>
-</div>
+        </div>
 
+        <div class="row">
+            <h1>Events</h1>
+            <p>Organizations hosting events this month for women.</p>
+            <div class="bg">
+                <div class="column">
+                    <a href="www.google.com">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'coolkats_app/images/hackathon.JPG' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Hackathon</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="column">
 
-<div class="row">
-    <h1>Opportunities</h1>
-    <p>Find internships, grants and job shadowing opportunities</p>
-    <div class="column">
-        <a href="www.google.com">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'coolkats_app/images/internship.png' %}"
-            class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Internships</p>
+                    <a href="www.google.com">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'coolkats_app/images/network.JPG' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Networking Event</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="column">
+                    <a href="www.google.com">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'coolkats_app/images/Capture222.JPG' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">STEM Conference</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
-        </a>
-    </div>
-    <div class="column">
-        <a href="www.google.com">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'coolkats_app/images/grants.JPG' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Financial Aid</p>
-            </div>
-        </div>
-        </a>
-    </div>
-    <div class="column">
-        <a href="www.google.com">
-        <div class="card" style="width: 18rem;">
-            <img src="{% static 'coolkats_app/images/Capture222.JPG' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Career Shadowing</p>
-            </div>
-        </div>
-        </a>
-    </div>
-</div>
 
-</body> 
+        <div class="row">
+            <h1>Opportunities</h1>
+            <p>Find internships, grants and job shadowing opportunities</p>
+            <div class="bg">
+                <div class="column">
+                    <a href="www.google.com">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'coolkats_app/images/internship.png' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Internships</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="column">
+                    <a href="www.google.com">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'coolkats_app/images/grants.JPG' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Financial Aid</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="column">
+                    <a href="www.google.com">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'coolkats_app/images/Capture222.JPG' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Career Shadowing</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
