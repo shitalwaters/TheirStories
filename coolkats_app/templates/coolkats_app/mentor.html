@@ -137,8 +137,9 @@
 </head>
 
 <body>
+    {% include 'coolkats_app/navbar.html' %}
     <div class="container">
-        {% include 'coolkats_app/navbar.html' %}
+
         <div class="container-bio">
             <div class="mentor-name">Mentor Bio</div>
             <div class="mentor-desc">{{mentor.name}} - {{mentor.fields}}</div>
@@ -195,6 +196,11 @@
 
             </div>
         </div>
+        {% for message in messages %}
+        <p id="message">
+        <div class="alert alert-{{message.tags}}">{{message}}</div>
+        </p>
+        {% endfor %}
         <div class="container-book">
             <div class="booksession hstack">
                 <div class="booksession-header">

@@ -18,9 +18,17 @@
         integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'coolkats_app/signup.css/' %}">
+    <link rel="stylesheet" href="{% static 'coolkats_app/navbar.css/' %}">
+    <style>
+        .container {
+            background-color: white;
+            margin-top: 8rem;
+        }
+    </style>
 </head>
 
 <body>
+    {% include 'coolkats_app/navbar.html' %}
     <div class="container h-100">
         <div class="d-flex justify-content-center h-100">
             <div class="user_card">
