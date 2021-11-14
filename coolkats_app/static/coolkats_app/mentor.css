@@ -1,0 +1,90 @@
+
+
+
+.container {
+    margin-left: 100px;
+    padding-right: 100px;
+}
+
+.mentor-title{
+    padding: 100px
+}
+
+.mentor-name{
+    font-size: 50px;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.mentor-tab{
+    padding: 100px;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+  
+  .container {
+    align-items: flex-start;
+    background-color: var(--white);
+    margin: 3rem 3rem 3rem 3rem;
+}
+
+.booksession {
+    background-color: #EBEBEB;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.booksession-header{
+    width: 40%;
+    margin-left: 3rem;
+    margin-right: 2rem;
+}
+
+.session{
+    width: 50%;
+}
+
+.session-info{
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    color:white;
+    background-color: #FE3B58;
+}
+

@@ -1,16 +1,114 @@
-{% for message in messages %}
-<p>
-<div class="alert alert-{{message.tags}}">{{message}}</div>
-</p>
-{% endfor %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-<h2>{{mentor.name}}</h2>
-<p>{{mentor.description}}</p>
-<p>{{mentor.web_link}}</p>
-<img src="{{mentor.image}}" alt="" style="height: 150px; width:100px">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+    integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+    integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
+    integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'coolkats_app/mentor.css/' %}">
+  <link rel="stylesheet" href="{% static 'coolkats_app/navbar.css/' %}">
+  {% include 'coolkats_app/navbar.html' %}
+</head>
 
-{% for session in sessions %}
-<h2>{{session.title}}</h2>
-<p>From {{session.startTime}} to {{session.endTime}}</p>
-<a href="/booksession/{{mentor.id}}/{{user.id}}/{{session.id}}">Book Session</a>
-{% endfor %}
+<body>
+    <div class="container">
+        <div class="mentor-title">
+            {% for message in messages %}
+            <p>
+            <div class="alert alert-{{message.tags}}">{{message}}</div>
+            </p>
+            {% endfor %}
+        </div>
+
+        <div class="mentor-name">Mentor Bio</div>
+        <div class="mentor-desc">{{mentor.name}} - {{mentor.fields}}</div>
+        <!-- <p>{{mentor.web_link}}</p> -->
+        <div class="flex-container">
+
+            <div>
+                <img src="{{mentor.image}}" alt="" style="height: 400px; width:500px">
+            </div>
+            <div class="mentor-tab">
+                <!-- Tab -->
+                <script>
+                    document.getElementById("defaultOpen").click();
+                </script>
+            
+                <div class="tab">
+                    <button class="tablinks" onclick="openCity(event, 'About-me')" id="defaultOpen">About me</button>
+                    <button class="tablinks" onclick="openCity(event, 'Specialty')">Specialty</button>
+                    <button class="tablinks" onclick="openCity(event, 'Reviews')">Reviews</button>
+                </div>
+                
+                <!-- Tab content -->
+                <div id="About-me" class="tabcontent">
+                    <p>{{mentor.description}}</p>
+                </div>
+                
+                <div id="Specialty" class="tabcontent">
+                    <p>{{mentor.fields}}</p>
+                </div>
+                
+                <div id="Reviews" class="tabcontent">
+                    <p>what is this???</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="booksession hstack">
+                <div class="booksession-header">
+                    <h2>Book a free meeting</h2>
+                    <p>Virtual coffee chats, interview tips, career plan, college application review, study suggestions.</p>
+                </div>
+                <div class="sessions vstack">
+                    {% for session in sessions %}
+                    <a href="/booksession/{{mentor.id}}/{{user.id}}/{{session.id}}" class="session-info">
+                        <div >
+                            <p>{{session.title}}: From {{session.startTime}} to {{session.endTime}}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </container>
+</body>
+
+</html>
+<script>
+document.getElementById("defaultOpen").click();
+
+function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+  
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+  
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+  
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script>
