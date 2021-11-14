@@ -27,6 +27,16 @@ def index(request):
     return render(request, 'coolkats_app/index.html', context)
 
 
+def detail(request, mentor_name):
+    mentor = Mentor.objects.get(name=mentor_name)
+    context = {
+        'mentor': mentor
+    }
+    return render(request, 'coolkats_app/detail.html', context)
+
+def resources(request):
+    
+    return render(request, 'coolkats_app/resources.html')
 
 def signin(request):
     if request.method=='POST':
