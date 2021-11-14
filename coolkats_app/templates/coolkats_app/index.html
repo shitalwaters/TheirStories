@@ -326,35 +326,42 @@
       font-size: 24px;
     }
 
-    .result a{
+    .result a {
       color: white;
       margin-right: 1rem;
     }
 
-    .moreButton{
+    .moreButton {
       font-size: 28px;
       text-align: center;
     }
 
-    .card-img-overlay{bottom: 0;}
+    .card-img-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(67, 70, 70, 0.72);
+      color: #fff;
+      visibility: hidden;
+      opacity: 0;
 
-    .mentor-info-container {
-        position: relative;
-        min-height: 150px;
+      /* transition effect. not necessary */
+      transition: opacity .2s, visibility .2s;
     }
 
-    .mentor-info {
-        position: absolute;
-        bottom: 200px;
-        left: 0;
-    }
-
-    .moreButton .btn{
+    .moreButton .btn {
       background-color: #2db6fc;
       margin-top: 25px;
       font-size: 28px;
       width: 150px;
       height: 60px;
+    }
+
+    .card:hover .card-img-overlay {
+      visibility: visible;
+      opacity: 1;
     }
   </style>
 </head>
@@ -378,13 +385,17 @@
                   {% csrf_token %}
                   <div class="row">
                     <div class="col">
-                      <label for="motivation" class="form-label">Motivation</label>
+                      <label for="motivation" class="form-label">Categories</label>
                       <input class="form-control" list="motivationOptions" id="motivation" name="motivation"
                         placeholder="What type of help do you want?">
                       <datalist id="motivationOptions">
-                        {% for motivation in motivations %}
-                        <option value={{ motivation }}>
-                          {% endfor %}
+
+                        <option value="College Application"></option>
+                        <option value="Career Advices"></option>
+                        <option value="Interview Prep"></option>
+                        <option value="Presentation Skills"></option>
+                        <option value="Managing Stress"></option>
+                        <option value="Time Management"></option>
                       </datalist>
                     </div>
                     <div class="col">
@@ -392,9 +403,13 @@
                       <input class="form-control" list="fieldOptions" id="field" name="field"
                         placeholder="What field are you looking for?">
                       <datalist id="fieldOptions">
-                        {% for field in fields %}
-                        <option value={{ field }}>
-                          {% endfor %}
+                        <option value="Software Engineer"></option>
+                        <option value="Design"></option>
+                        <option value="Marketing"></option>
+                        <option value="Product Management"></option>
+                        <option value="Data Science"></option>
+                        <option value="Mathematics"></option>
+                        <option value="Technology"></option>
                       </datalist>
                     </div>
                     <div class="col submitbutton">
@@ -402,19 +417,19 @@
                     </div>
                   </div>
                 </form>
+
                 {% if mentors.count > 0 %}
                 <div class="result">
                   {% for mentor in mentors %}
                   <a href="/mentor/{{ mentor.id}}">
                     <div class="card bg-dark text-white">
                       <img class="card-img" src="{{mentor.image}}" alt="Card image"
-                        style="filter: brightness(50%); height: 500px; width: 350px;">
-                      <div class="mentor-info-container card-img-overlay">
-                        <div class="mentor-info">
-                            <h3 class="card-title" style="padding-left: 20px; font-size: 18x;">{{mentor.name}}</h3>
-                            <p class="card-text" style="padding-left: 20px; font-size: 18px;">{{mentor.fields}}</p>
-                            <p class="card-text" style="padding-left: 20px; font-size: 16px;">{{mentor.motivations}}</p>
-                        </div>
+                        style=" height: 500px; width: 350px;">
+                      <div class="card-img-overlay">
+                        <h3 class="card-title">{{mentor.name}}</h3>
+                        <p class="card-text">{{mentor.fields}}</p>
+                        <p class="card-text">{{mentor.motivations}}</p>
+
                       </div>
                   </a>
                 </div>

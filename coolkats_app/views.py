@@ -24,7 +24,7 @@ def index(request):
     
 
     fields = ["Software Engineer", "Design", "Marketing", "Product Management"]
-    motivations = ["Job search", "Career advice", "Leadership", "Mentorship", "Skills"]
+    motivations = ["College Application","Career Advices","Interview Prep","Presentation Skills","Managing Stress","Time Management"]
     context = {
         'mentors': mentors,
         'fields':fields,
@@ -86,12 +86,12 @@ def bookSession(request, user_id, mentor_id, session_id):
 
 def categoryPage(request):
     return render(request, 'coolkats_app/categories.html')
-
+#College Application,Career Advices,Interview Prep,Presentation Skills,Managing Stress,Time Management
 def mentorResult(request, result_id):
     if result_id==1:
-        mentors= Mentor.objects.filter(Q(motivations__icontains='Essay Writing Help'))
+        mentors= Mentor.objects.filter(Q(motivations__icontains='College Application'))
     elif result_id==2:
-        mentors= Mentor.objects.filter(Q(motivations__icontains='College Roadmap'))
+        mentors= Mentor.objects.filter(Q(motivations__icontains='Career Advices'))
     elif result_id==3:
         mentors= Mentor.objects.filter(Q(motivations__icontains='Interview Prep'))
     elif result_id==4:
@@ -99,8 +99,8 @@ def mentorResult(request, result_id):
     elif result_id==5:
         mentors= Mentor.objects.filter(Q(motivations__icontains='Managing Stress'))
     elif result_id==6:
-        mentors= Mentor.objects.filter(Q(motivations__icontains='Essay_Writing_Help'))
+        mentors= Mentor.objects.filter(Q(motivations__icontains='Time Management'))
     else: 
         mentors=[]
     context={'mentors':mentors,}
-    return render(request, 'coolkats_app/category.html', context)
+    return render(request, 'coolkats_app/categorymentor.html', context)
