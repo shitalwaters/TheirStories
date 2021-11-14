@@ -5,9 +5,12 @@ from django.contrib import messages
 from .forms import CreateUserForm
 from django.contrib.auth.models import User
 
+from coolkats_app.models import Mentor
+from django.db.models import Q
 # Create your views here.
 from coolkats_app.models import Mentor, AvailableTime
 from django.db.models import Q
+
 
 def index(request):
     
@@ -19,8 +22,8 @@ def index(request):
         motivation="/"
     mentors = Mentor.objects.filter(Q(fields__icontains=field) & Q(motivations__icontains=motivation))
 
-    fields = ["choice1", "choice2", "choice3"]
-    motivations = ["c1", "c2", "c3"]
+    fields = ["Software Engineer", "Design", "Marketing", "Product Management"]
+    motivations = ["Job search", "Career advice", "Leadership", "Mentorship", "Skills"]
     context = {
         'mentors': mentors,
         'fields':fields,
@@ -28,6 +31,9 @@ def index(request):
     }
     return render(request, 'coolkats_app/index.html', context)
 
+def resources(request):
+    
+    return render(request, 'coolkats_app/resources.html')
 
 def signin(request):
     if request.method=='POST':
