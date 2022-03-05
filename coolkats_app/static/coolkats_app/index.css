@@ -1,0 +1,234 @@
+.container{
+  margin-top: 80rem;
+  background-color: aquamarine;
+}
+
+
+
+.coolkats-homepage {
+    align-items: flex-start;
+    background-color: var(--white);
+    display: flex;
+    height: 1024px;
+    overflow: hidden;
+    width: 1440px;
+  }
+  
+  .coolkats-homepage .overlap-group2 {
+    height: 1390px;
+    margin-top: -101px;
+    position: relative;
+    width: 1999px;
+  }
+  
+  .coolkats-homepage .overlap-group1 {
+    height: 1390px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 1999px;
+  }
+  
+  .coolkats-homepage .ellipse-25 {
+    height: 1010px;
+    left: 806px;
+    position: absolute;
+    top: 380px;
+    width: 1070px;
+  }
+  
+  .coolkats-homepage .ellipse-26 {
+    height: 942px;
+    left: 999px;
+    position: absolute;
+    top: 0;
+    width: 1000px;
+  }
+  
+  .coolkats-homepage .text-2 {
+    color: var(--black);
+    font-family: var(--font-family-raleway);
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    left: 93px;
+    letter-spacing: 0;
+    line-height: 42.0px;
+    position: absolute;
+    top: 402px;
+    width: 765px;
+  }
+  
+  .coolkats-homepage .component-37 {
+    height: 56px;
+    left: 93px;
+    position: absolute;
+    top: 137px;
+    width: 1254px;
+  }
+  
+  .coolkats-homepage .line-13 {
+    height: 1px;
+    left: 93px;
+    position: absolute;
+    top: 206px;
+    width: 1255px;
+  }
+  
+  .coolkats-homepage .component-38 {
+    align-items: flex-start;
+    display: flex;
+    height: 86px;
+    left: 93px;
+    min-width: 971px;
+    position: absolute;
+    top: 527px;
+  }
+  
+  .coolkats-homepage .overlap-group {
+    height: 86px;
+    position: relative;
+    width: 972px;
+  }
+  
+  .coolkats-homepage .button-group {
+    align-items: flex-start;
+    background-color: var(--white);
+    display: flex;
+    height: 86px;
+    left: 0;
+    padding: 0 401.0px;
+    position: absolute;
+    top: 0;
+    width: 806px;
+  }
+  
+  .coolkats-homepage .separator {
+    height: 86px;
+    margin-left: 2px;
+    width: 2px;
+  }
+  
+  .coolkats-homepage .text-3 {
+    height: 22px;
+    left: 427px;
+    letter-spacing: 0;
+    line-height: 22.4px;
+    position: absolute;
+    top: 43px;
+    white-space: nowrap;
+    width: 285px;
+  }
+  
+  .coolkats-homepage .text-4 {
+    height: 22px;
+    left: 22px;
+    letter-spacing: 0;
+    line-height: 22.4px;
+    position: absolute;
+    top: 43px;
+    white-space: nowrap;
+    width: 320px;
+  }
+  
+  .coolkats-homepage .motivation {
+    height: 22px;
+    left: 22px;
+    letter-spacing: 0;
+    line-height: 22.4px;
+    position: absolute;
+    top: 21px;
+    white-space: nowrap;
+    width: 240px;
+  }
+  
+  .coolkats-homepage .skillset {
+    height: 22px;
+    left: 427px;
+    letter-spacing: 0;
+    line-height: 22.4px;
+    position: absolute;
+    top: 21px;
+    white-space: nowrap;
+    width: 240px;
+  }
+  
+  .coolkats-homepage .rectangle-33 {
+    background-color: var(--white);
+    height: 86px;
+    left: 800px;
+    position: absolute;
+    top: 0;
+    width: 172px;
+  }
+  
+  .coolkats-homepage .rectangle-25 {
+    background-color: 
+  #2db6fc;
+    border-radius: 5px;
+    height: 60px;
+    left: 822px;
+    position: absolute;
+    top: 13px;
+    width: 128px;
+  }
+  
+  .coolkats-homepage .search {
+    color: var(--white);
+    font-family: var(--font-family-raleway);
+    font-size: var(--font-size-l);
+    font-weight: 600;
+    left: 847px;
+    letter-spacing: 0;
+    line-height: 28.8px;
+    position: absolute;
+    top: 28px;
+    white-space: nowrap;
+  }
+  
+  .coolkats-homepage .womenintech-1 {
+    height: 691px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 434px;
+    width: 1440px;
+  }
+  
+  .coolkats-homepage .text-1 {
+    color: var(--black);
+    font-family: var(--font-family-inter);
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    left: 93px;
+    letter-spacing: 0;
+    line-height: 54px;
+    position: absolute;
+    top: 276px;
+    width: 665px;
+  }
+  
+  @import url("https://fonts.googleapis.com/css?family=Inter:700,600|Raleway:500,600");
+  
+  .screen a {
+    display: contents;
+    text-decoration: none;
+  }
+  
+  .container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+  }
+  
+  .container-center-horizontal > * {
+    flex-shrink: 0;
+    pointer-events: auto;
+  }
+  
+  .valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }

@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentors</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+        integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
+        integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'coolkats_app/navbar.css/' %}">
+    <style>
+        .container {
+            margin-top: 9rem;
+            margin-left: 15rem;
+            background-color: white;
+        }
+
+        .result {
+            margin-top: 3rem !important;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 5px 5px;
+            margin: 0 auto;
+        }
+
+        .card {
+            height: 500px;
+            width: 350px;
+            font-size: 24px;
+        }
+
+        .result a {
+            color: white;
+            margin-right: 1rem;
+        }
+
+        .moreButton {
+            font-size: 28px;
+            text-align: center;
+            margin-right: 17rem;
+        }
+
+        .card-img-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(67, 70, 70, 0.72);
+            color: #fff;
+            visibility: hidden;
+            opacity: 0;
+
+            /* transition effect. not necessary */
+            transition: opacity .2s, visibility .2s;
+        }
+
+        .moreButton .btn {
+            background-color: #2db6fc;
+            margin-top: 25px;
+            font-size: 28px;
+            width: 150px;
+            height: 60px;
+        }
+
+        .card:hover .card-img-overlay {
+            visibility: visible;
+            opacity: 1;
+        }
+
+
+        .header {
+            margin-left: 26rem;
+
+        }
+
+        .header h2 {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        {% include 'coolkats_app/navbar.html' %}
+        <div class="header">
+            <h2>Mentors</h2>
+        </div>
+        {% if mentors.count > 0 %}
+        <div class="result">
+            {% for mentor in mentors %}
+            <a href="/mentor/{{ mentor.id}}">
+                <div class="card bg-dark text-white">
+                    <img class="card-img" src="{{mentor.image}}" alt="Card image"
+                        style="height: 500px; width: 350px;">
+                    <div class="card-img-overlay">
+                        <h3 class="card-title">{{mentor.name}}</h3>
+                        <p class="card-text">{{mentor.fields}}</p>
+                        <p class="card-text">{{mentor.motivations}}</p>
+
+                    </div>
+            </a>
+        </div>
+
+        {% endfor %}
+    </div>
+
+    <div class="moreButton">
+        <a class="btn btn-primary">More Mentors</a>
+    </div>
+    {% endif %}
+    </div>
+</body>
+
+</html>
